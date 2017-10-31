@@ -14,7 +14,7 @@ import { CustomerCreateComponent } from './customers/customer-create/customer-cr
 const appRoutes: Routes = [
   { path: 'customer/:id',
     component: CustomerDetailComponent },
-  { path: 'customer/:create',
+  { path: 'customers/create',
     component: CustomerCreateComponent },
   {
     path: 'customers',

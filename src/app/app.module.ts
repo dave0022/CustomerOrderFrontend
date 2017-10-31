@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { CustomerComponent } from './customers/customer/customer.component';
 import { CustomerService } from './customers/shared/customer.service';
 import {HttpClientModule} from '@angular/common/http';
-import { CustomComponent } from './customers/custom/custom.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { CustomerDetailComponent } from './customers/customer-detail/customer-detail.component';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerCreateComponent } from './customers/customer-create/customer-create.component';
 
 const appRoutes: Routes = [
   { path: 'customer/:id',
     component: CustomerDetailComponent },
+  { path: 'customer/:create',
+    component: CustomerCreateComponent },
   {
     path: 'customers',
     component: CustomerListComponent,
@@ -29,9 +31,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     CustomerComponent,
-    CustomComponent,
     CustomerListComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    CustomerCreateComponent
   ],
   imports: [
     BrowserModule,

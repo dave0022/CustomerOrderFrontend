@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+      <h2>Customers
+        <div class="pull-right">
+          <button class="btn btn-outline-success" (click)="createCustomer()">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+          </button>
+        </div>
+      </h2>
+      <hr>
+
+
+    </div>
+    <div class="col-md-12">
+      <div class="list-group">
+        <a  (click)="details(customer)"
+            *ngFor="let customer of customers"  class="list-group-item list-group-item-action">
+
+          <h5><i class="fa fa-id-badge fa-5x" aria-hidden="true"></i> {{customer.firstName}} {{customer.lastName}}</h5>
+
+          <div *ngIf="!customerToDelete || customerToDelete.id != customer.id" class="pull-right">
+            <button class="btn btn-outline-danger" (click)="delete(customer, $event)">
+              <i class="fa fa-bomb" aria-hidden="true"></i>
+            </button>
+
+
+          </div>
+          <div *ngIf="customerToDelete && customerToDelete.id == customer.id" class="pull-right">
+            <button class="btn btn-outline-danger" (click)="deleteConfirmed($event)">
+              <i class="fa fa-bomb" aria-hidden="true"></i> Really?
+            </button>
+            <button class="btn btn-outline-info" (click)="deleteAborted($event)">
+              Cancel
+            </button>
+
+          </div>
+
+
+
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

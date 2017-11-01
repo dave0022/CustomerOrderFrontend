@@ -1,0 +1,13 @@
+.img {
+  float: left;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+.fa-id-badge {
+  float: left;
+  margin: 5px;
+}
+.fa-id-badge {
+  color: crimson;
+}

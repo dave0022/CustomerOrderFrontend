@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-md-12">
+      <hr>
+      <button class="btn btn-outline-success"
+              routerLink="/customers"
+              routerLinkActive="active">Back
+      </button>
+      <hr>
+    </div>
+
+  </div>
+
+  <div class="col-mod-12">
+    <div class="card">
+      <div class="card-header">
+        Additional Information
+      </div>
+      <div class="card-body row">
+
+        <div class="col-md-4">
+
+          <i class="fa fa-id-badge fa-5x" aria-hidden="true"></i>
+        </div>
+        <div class="col-md-8">
+
+          <dl class="row">
+            <dt class="col-md-3">Id:</dt>
+            <dd class="col-md-9">
+              {{customer?.id}}
+            </dd>
+          </dl>
+
+          <dl class="row">
+          <dt class="col-sm-3">Fullname:</dt>
+          <dd class="col-sm-9">
+            {{customer?.firstName}}
+            {{customer?.lastName}}
+          </dd>
+          </dl>
+
+        </div>
+      </div>
+      <div class="card-footer bg-transparent">
+        <div class="pull-right" *ngIf="!confirmDelete">
+
+        <button class="btn btn-outline-danger" (click)="delete()">Delete</button>
+
+        </div>
+
+        <div class="pull-right" *ngIf="confirmDelete">
+          <button class="btn btn-outline-danger" (click)="deleteConfirmed()">Really?</button>
+          <button class="btn btn-outline-info" (click)="abortDelete()">Cancel</button>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+

@@ -45,7 +45,8 @@ export class CustomerListComponent implements OnInit {
   deleteConfirmed($event) {
     this.customerService.delete(this.customerToDelete.id)
       .switchMap(customer =>  this.customerService.get())
-      .subscribe(customer => {
+      .subscribe(customers => {
+        this.customers = customers;
         });
     $event.stopPropagation();
   }

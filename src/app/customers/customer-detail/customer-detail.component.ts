@@ -3,6 +3,7 @@ import {Customer} from '../shared/customer.model';
 import {CustomerService} from '../shared/customer.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
+import {Order} from '../../order/order';
 
 @Component({
   selector: 'app-customer-detail',
@@ -11,6 +12,8 @@ import 'rxjs/add/operator/switchMap';
 })
 export class CustomerDetailComponent implements OnInit {
   confirmDelete = false;
+  orders: Order[];
+  order: Order;
   customer: Customer;
   constructor(private customerService: CustomerService,
               private router: Router,
@@ -21,11 +24,19 @@ export class CustomerDetailComponent implements OnInit {
     this.route.paramMap
       .switchMap(params => this.customerService.getById(+params.get('id')))
       .subscribe(customer => this.customer = customer);
+    this.customerService.getOrder()
+        .subscribe(
+          orders => {
+            this.orders = orders;
+          }
+        );
+  }
+  product() {
+    console.log('Hey');
   }
   delete() {
     this.confirmDelete = true;
   }
-
   abortDelete() {
     this.confirmDelete = false;
   }

@@ -39,9 +39,23 @@
             {{customer?.firstName}}
             {{customer?.lastName}}
           </dd>
+            <a (click)="product(order)" *ngFor="let order of orders"  class="list-group-item list-group-item-action" >
+
+              <h5><i aria-hidden="true"></i> Order Nr. {{order.id}} </h5>
+            </a>
           </dl>
 
-        </div>
+          <dl class="row">
+            <dt class="col-sm-3">  </dt>
+
+
+
+          </dl>
+
+
+
+
+      </div>
       </div>
       <div class="card-footer bg-transparent">
         <div class="pull-right" *ngIf="!confirmDelete">
@@ -55,12 +69,8 @@
           <button class="btn btn-outline-info" (click)="abortDelete()">Cancel</button>
 
         </div>
+
       </div>
     </div>
-
   </div>
-
 </div>
-
-
-

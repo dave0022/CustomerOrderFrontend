@@ -5,9 +5,10 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {Order} from '../../order/order';
 
 const url = environment.apiEndpoint + '/customer';
-
+const url2 = environment.apiEndpoint + '/order';
 @Injectable()
 export class CustomerService {
 
@@ -16,6 +17,10 @@ export class CustomerService {
   get(): Observable<Customer[]> {
     return this.http
       .get<Customer[]>(url);
+  }
+  getOrder(): Observable<Order[]> {
+    return this.http
+      .get<Order[]>(url2);
   }
   getById(id: number): Observable<Customer> {
     return this.http

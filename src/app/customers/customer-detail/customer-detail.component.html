@@ -39,9 +39,9 @@
             {{customer?.firstName}}
             {{customer?.lastName}}
           </dd>
-            <a (click)="product(order)" *ngFor="let order of orders"  class="list-group-item list-group-item-action" >
+            <a (click)="product(order)" *ngFor="let order of orders;"  class="list-group-item list-group-item-action" >
 
-              <h5><i aria-hidden="true"></i> Order Nr. {{order.id}} </h5>
+              <h5><i aria-hidden="true"></i> Order Nr. {{order.id}} {{order.customerId}} </h5>
             </a>
           </dl>
 
